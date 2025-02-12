@@ -1,0 +1,17 @@
+<header class="w-full px-4 lg:px-6 h-20 flex items-center shadow-md">
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex flex-col items-start space-x-4 lg:space-x-6" routerLink="['/']">
+            <div class="text-2xl font-bold">Janier Hernández</div>
+            <div class="hidden sm:flex text-sm text-muted-foreground">Web Developer</div>
+        </nav>
+        <nav class="hidden sm:flex items-center space-x-4 lg:space-x-6">
+        <a [routerLink]="['/movimientos']" routerLinkActive="router-link-active"  class="text-md font-medium hover:underline underline-offset-4">
+            Movimientos
+        </a>
+        <a [routerLink]="['/inventario']" routerLinkActive="router-link-active"  class="text-md font-medium hover:underline underline-offset-4">
+            Inventario
+        </a>
+        
+        </nav>
+    </div>
+    </header>
