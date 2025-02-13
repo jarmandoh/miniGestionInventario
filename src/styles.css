@@ -19,12 +19,12 @@ a, button{
 }
 
 /* Animaciones */
-::view-transition-old(root){
+::view-transition-old(.contendor-ruter){
     animation: salida 1s ease 0s 1 normal forwards;
 
 }
 
-::view-transition-new(root){
+::view-transition-new(.contendor-ruter){
     animation: entrada 1s ease 0s 1 normal forwards;
 }
 
