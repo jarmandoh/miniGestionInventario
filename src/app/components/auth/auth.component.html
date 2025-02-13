@@ -1,6 +1,6 @@
 <div class="container">
   <div class="auth-card">
-    <h2>{{ isLoginMode ? "Login" : "Sign Up" }}</h2>
+    <h2>{{ isLoginMode ? "Iniciar sesión" : "Registro" }}</h2>
     <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="email">Email</label>
@@ -40,12 +40,12 @@
       }
 
       <button mat-flat-button type="submit" [disabled]="!authForm.valid">
-        {{ isLoginMode ? "Ingreso" : "Registro" }}
+        {{ isLoginMode ? "Inicar sesión" : "Registro" }}
       </button>
     </form>
     <p>
       {{ isLoginMode ? "¿No tienes una cuenta?" : "¿Ya tienes una cuenta?" }}
-      <a href="#" (click)="toggleMode()">{{
+      <a (click)="toggleMode()">{{
         isLoginMode ? "Registro" : "Login"
       }}</a>
     </p>

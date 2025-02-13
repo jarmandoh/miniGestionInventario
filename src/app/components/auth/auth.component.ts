@@ -38,6 +38,7 @@ export class AuthComponent {
 
   toggleMode() {
     this.isLoginMode = !this.isLoginMode;
+    this.authForm.reset();
     if (this.isLoginMode) {
       this.authForm.removeControl('confirmPassword');
     } else {
@@ -52,9 +53,6 @@ export class AuthComponent {
         (response) => {
           this.authService.setToken(response.token);
           this.router.navigate(['/inventario']); // Redirige después del login
-        },
-        () => {
-          this.mensajeError = 'Credenciales incorrectas';
         }
       );
       // Here you would typically call your authentication service

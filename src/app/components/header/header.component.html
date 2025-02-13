@@ -5,13 +5,19 @@
             <div class="hidden sm:flex text-sm text-muted-foreground">Web Developer</div>
         </nav>
         <nav class="hidden sm:flex items-center space-x-4 lg:space-x-6">
-        <a [routerLink]="['/movimientos']" routerLinkActive="router-link-active"  class="text-md font-medium hover:underline underline-offset-4">
-            Movimientos
-        </a>
-        <a [routerLink]="['/inventario']" routerLinkActive="router-link-active"  class="text-md font-medium hover:underline underline-offset-4">
-            Inventario
-        </a>
-        
+            <a [routerLink]="['/movimientos']" routerLinkActive="router-link-active"  class="text-md font-medium hover:underline underline-offset-4">
+                Movimientos
+            </a>
+            <a [routerLink]="['/inventario']" routerLinkActive="router-link-active"  class="text-md font-medium hover:underline underline-offset-4">
+                Inventario
+            </a>
+            
+            <!-- - {{logueado | json}} - -->
+            @if(isloggedIn){
+                <a class="text-md font-medium hover:underline underline-offset-4" (click)="logout()">
+                    Salir
+                </a>
+            }
         </nav>
     </div>
     </header>
