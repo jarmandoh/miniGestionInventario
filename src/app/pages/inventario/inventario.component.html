@@ -13,16 +13,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let producto of productos" class="hover:bg-gray-100">
-            <td class="p-3 border border-gray-300 text-center">{{ producto.id }}</td>
-            <td class="p-3 border border-gray-300">{{ producto.nombre }}</td>
-            <td
-              class="p-3 border border-gray-300 text-center"
-              [ngClass]="{ 'text-red-500 font-bold': producto.cantidad <= 5, 'text-green-600': producto.cantidad > 5 }"
-            >
-              {{ producto.cantidad }}
-            </td>
-          </tr>
+          @for (producto of productos; track $index) {
+            <tr class="hover:bg-gray-100">
+              <td class="p-3 border border-gray-300 text-center">{{ producto.id }}</td>
+              <td class="p-3 border border-gray-300">{{ producto.nombre }}</td>
+              <td class="p-3 border border-gray-300 text-center" [ngClass]="{ 'text-red-500 font-bold': producto.cantidad <= 5, 'text-green-600': producto.cantidad > 5 }">
+                {{ producto.cantidad }}
+              </td>
+            </tr>
+          }
         </tbody>
       </table>
     </div>

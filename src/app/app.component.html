@@ -2,12 +2,30 @@
   <div class="bg-white pb-4">
     <app-header class="min-w-full col-span-12"></app-header>
   </div>
-  <div class="contendor-ruter flex-1 min-h-auto h-auto bg-white p-4 overflow-auto w-12/12 self-center">
-    <router-outlet></router-outlet>
+  <div class="contenedor-router flex-1 min-h-auto h-auto bg-white p-4 overflow-auto w-12/12 self-center">
+    <router-outlet class="h-auto block"></router-outlet>
   </div>
   <div class="bg-white pt-4">
     <app-footer class="min-w-full col-span-12 row-start-3"></app-footer>
   </div>
-
 </div>
-  
+<!-- Menú desplegable para dispositivos móviles -->
+<div [@miAnimacion]="animationState" class="sm:hidden fixed top-0 left-0 z-100 bg-white p-6 w-full h-full border">
+  <nav class="flex flex-col space-y-2">
+      <button (click)="toggleMenu()" class="flex  justify-end">
+        <img class="block w-5 h-5  mr-0" src="../../../../assets/icons/close.png" alt="">
+      </button>
+      <a [routerLink]="['/movimientos']" routerLinkActive="router-link-active" class="text-md font-medium hover:underline underline-offset-4" (click)="menuService.closeMenu()">
+          Movimientos
+      </a>
+      <a [routerLink]="['/inventario']" routerLinkActive="router-link-active" class="text-md font-medium hover:underline underline-offset-4" (click)="menuService.closeMenu()">
+          Inventario
+      </a>
+      <ng-container *ngIf="isloggedIn">
+          <a class="text-md font-medium text-center p-2 items-end bg-red-200 hover:underline underline-offset-4" (click)="logout()" (click)="menuService.closeMenu()">
+              Cerrar Sesión
+          </a>
+      </ng-container>
+      
+  </nav>
+</div>

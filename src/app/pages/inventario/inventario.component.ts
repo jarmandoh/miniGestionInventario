@@ -8,7 +8,6 @@ import { NgClass, NgFor, NgIf } from '@angular/common';
   selector: 'app-inventario',
   imports: [
     NgClass,
-    NgFor,
     NgIf,
   ],
   templateUrl: './inventario.component.html',

@@ -14,6 +14,12 @@ export const routes: Routes = [
         canActivate: [AuthGuard]
     },
     {
+        path: 'cuestionario',
+        loadComponent() {
+            return import('./pages/cuestionario/cuestionario.component').then(m => m.CuestionarioComponent)
+        },
+    },
+    {
         path: 'inventario',
         loadComponent() {
             return import('./pages/inventario/inventario.component').then(m => m.InventarioComponent);

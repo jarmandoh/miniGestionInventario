@@ -5,11 +5,14 @@
             <div class="hidden sm:flex text-sm text-muted-foreground">Web Developer</div>
         </nav>
         <nav class="hidden sm:flex items-center space-x-4 lg:space-x-6">
-            <a [routerLink]="['/movimientos']" routerLinkActive="router-link-active"  class="text-md font-medium hover:underline underline-offset-4">
+            <a [routerLink]="['/movimientos']" routerLinkActive="router-link-active"  class="text-md font-medium hover:bg-gray-800 hover:text-gray-300 p-4 rounded">
                 Movimientos
             </a>
-            <a [routerLink]="['/inventario']" routerLinkActive="router-link-active"  class="text-md font-medium hover:underline underline-offset-4">
+            <a [routerLink]="['/inventario']" routerLinkActive="router-link-active"  class="text-md font-medium hover:bg-gray-800 hover:text-gray-300 p-4 rounded">
                 Inventario
+            </a>
+            <a [routerLink]="['/cuestionario']" routerLinkActive="router-link-active"  class="text-md font-medium hover:bg-gray-800 hover:text-gray-300 p-4 rounded">
+                Cuestionario
             </a>
             
             <!-- - {{logueado | json}} - -->
@@ -19,5 +22,13 @@
                 </a>
             }
         </nav>
+        <!-- Menú hamburguesa para dispositivos móviles -->
+        <div class="sm:hidden">
+            <button (click)="toogleMenu()" class="text-md font-medium">
+                <img class="block w-5 h-5" src="../../../../assets/icons/menus.png" alt="">
+                
+            </button>
+        </div>
     </div>
+    
     </header>
