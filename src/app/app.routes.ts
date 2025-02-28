@@ -33,6 +33,12 @@ export const routes: Routes = [
         }
     },
     {
+        path: 'voz-a-texto',
+        loadComponent() {
+            return import('./pages/vozatexto/vozatexto.component').then(m => m.VozatextoComponent);
+        }
+    },
+    {
         path: '**',
         redirectTo: ''
     }
