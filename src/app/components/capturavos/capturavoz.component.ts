@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SpeechrecognitionService } from '../../services/speechrecognition.service';
-import { NgIf } from '@angular/common';
+import { JsonPipe, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-capturavos',
   imports: [
-    NgIf
+    NgIf,
+    JsonPipe
   ],
   templateUrl: './capturavos.component.html',
   styleUrl: './capturavoz.component.css'
@@ -14,7 +15,7 @@ import { NgIf } from '@angular/common';
 export class CapturavosComponent {
   texto: string = '';
   escuchando: boolean = false;
-
+  oraciones: string[] = [];
   private subscription: Subscription | undefined;
 
   constructor(
@@ -23,9 +24,16 @@ export class CapturavosComponent {
 
   startRecording(){
     this.escuchando = true;
-    this.subscription = this.speechRecognitionService.escuchar().subscribe((texto: string) => {
+    this.texto = '';
+    this.subscription = this.speechRecognitionService.escuchar().subscribe(
+      (oraciones) => {
+        console.log(oraciones)
+        this.oraciones = oraciones
+      }
+      /* (texto: string) => {
         this.texto = texto;
-    })
+      } */
+    )
   }
 
   stopRecording(){
