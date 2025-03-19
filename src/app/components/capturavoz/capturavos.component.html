@@ -1,0 +1,17 @@
+<div class="flex flex-row justify-center items-center mb-10">
+    @if (escuchando) {
+        <button class="bg-red-700 text-white rounded p-2" (click)="stopRecording()" >Detener grabación</button>
+        <img class="block w-8 h-8" src="../../../../assets/icons/microfono.gif" alt="">
+    } @else {
+        <button class="bg-gray-700 text-white rounded p-2" (click)="startRecording()" >Iniciar grabación</button>
+    }
+</div>
+
+<ul class="mb-10">
+    @for(oracion of oraciones; track $index){
+        <li class="p-2 pr-4 mb-1 shadow shadow-dark-100 bg-green-100 flex flex-row justify-between items-center capitalize">
+            {{ oracion }}
+            <mat-icon class="cursor-pointer">delete</mat-icon>
+        </li>
+    }
+</ul>

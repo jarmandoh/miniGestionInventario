@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CapturavosComponent } from '../../components/capturavos/capturavoz.component';
+import { CapturavosComponent } from '../../components/capturavoz/capturavoz.component';
 
 @Component({
   selector: 'app-vozatexto',

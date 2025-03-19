@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SpeechrecognitionService } from '../../services/speechrecognition.service';
-import { JsonPipe, NgIf } from '@angular/common';
+
+import { FormsModule } from '@angular/forms';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-capturavos',
   imports: [
-    NgIf,
-    JsonPipe
+    FormsModule,
+    MatIconModule
+
   ],
   templateUrl: './capturavos.component.html',
   styleUrl: './capturavoz.component.css'
@@ -27,12 +30,13 @@ export class CapturavosComponent {
     this.texto = '';
     this.subscription = this.speechRecognitionService.escuchar().subscribe(
       (oraciones) => {
-        console.log(oraciones)
         this.oraciones = oraciones
+        oraciones.forEach(oracion => {
+          if(!this.texto.includes(oracion)){
+            this.texto += oracion + ' ';
+          }
+        });
       }
-      /* (texto: string) => {
-        this.texto = texto;
-      } */
     )
   }
 
@@ -40,7 +44,7 @@ export class CapturavosComponent {
     this.escuchando = false;
     this.subscription?.unsubscribe();
   }
-
+  
   ngDestroy(){
     this.subscription?.unsubscribe();
   }

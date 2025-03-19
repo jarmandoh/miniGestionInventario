@@ -5,11 +5,17 @@ import { JsonPipe, NgIf } from '@angular/common';
 import { MenuService } from '../../services/menu.service';
 import { MenuUserComponent } from '../menu-user/menu-user.component';
 
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
+
+
 @Component({
   selector: 'app-header',
   imports: [
     RouterLink,
-    MenuUserComponent
+    MenuUserComponent,
+    MatButtonModule,
+    MatMenuModule
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
